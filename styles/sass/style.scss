@@ -1,0 +1,113 @@
+@import "./partials/mixins";
+@import "./partials/setup";
+@import "./partials/palette";
+@import "./partials/typography";
+
+.content-wrapper {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+// ~~~~~~~~~~~~~~~~~~~~ NAV ~~~~~~~~~~~~~~~~~~~~ //
+
+nav {
+  width: 100%;
+  height: 80px;
+  position: fixed;
+  z-index: 1;
+  transition: height 0.25s;
+
+  div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+  }
+
+  h3 {
+    padding: 5px 6px 5px 9px;
+    border-radius: 5px;
+  }
+
+  li {
+    display: inline-block;
+  }
+
+  span {
+    padding: 0 10px;
+  }
+}
+
+.compressed {
+  height: 50px;
+}
+
+// ~~~~~~~~~~~~~~~~~~~~ HEADER ~~~~~~~~~~~~~~~~~~~~ //
+
+header {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+
+  h1 {
+    margin-bottom: 1vw;
+  }
+}
+
+.intro-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.left-bracket {
+  font-size: 20vw;
+}
+
+.right-bracket {
+  font-size: 20vw;
+}
+
+.intro {
+  padding: 2vw 4vw;
+  margin-top: 2vw;
+}
+
+// ~~~~~~~~~~~~~~~~~~~~ MAIN ~~~~~~~~~~~~~~~~~~~~ //
+
+.about, .skills, .projects, .contact {
+  padding: 3vw 0;
+}
+
+.about-container {
+  display: grid;
+  grid-template-columns: 35% 1fr;
+  gap: 2vw;
+  margin: 4vw 8vw 0;
+}
+
+.about-image {
+  text-align: center;
+
+  img {
+    max-width: 100%;
+    border-radius: 50%;
+  }
+}
+
+.about-info {
+  p {
+    margin-bottom: 15px;
+  }
+}
+
+// ~~~~~~~~~~~~~~~~~~~~ FOOTER ~~~~~~~~~~~~~~~~~~~~ //
+
+footer {
+  text-align: center;
+  padding: 1vw 0;
+}

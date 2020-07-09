@@ -1,0 +1,49 @@
+$body-background-color: white;
+$nav-background-color: #fbfbfb; // off-white, can try #fdfffc Baby Powder
+$header-background-color: #5d9cb5; // or #264653 Charcoal
+$footer-background-color: #011627; // Rich Black FOGRA 29
+$primary-accent-color: #e71d36; // Rose Madder
+$secondary-accent-color: #ff9f1c; // Orange Peel
+$inactive-text-color: #708090;
+
+body {
+  background-color: $body-background-color;
+}
+
+nav {
+  background-color: $nav-background-color;
+  box-shadow: 0px 10px 10px -12px black;
+
+  span {
+    color: $inactive-text-color;
+  }
+}
+
+header {
+  background: linear-gradient(to top right, $footer-background-color, 70%, $header-background-color);
+  color: white;
+}
+
+.intro {
+  span {
+    color: $secondary-accent-color;
+  }
+}
+
+footer {
+  background-color: $footer-background-color;
+  color: white;
+
+  i {
+    color: red;
+  }
+}
+
+a {
+  color: $inactive-text-color;
+}
+
+h3 {
+  background-color: $primary-accent-color;
+  color: white;
+}

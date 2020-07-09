@@ -1,0 +1,75 @@
+$text-font-family: "Open Sans", sans-serif;
+$header-font-family: "Poppins", sans-serif;
+
+body {
+  font-family: $text-font-family;
+  // font-size: 1.2em;
+}
+
+main {
+  // letter-spacing: 1px;
+  // line-height: 1.5;
+}
+
+footer {
+  font-weight: 300;
+}
+
+a {
+  letter-spacing: 2px;
+  text-decoration: none;
+  position: relative;
+
+  &::after {
+    content: "";
+    background-color: $primary-accent-color;
+    height: 2px;
+    position: absolute;
+    right: 50%;
+    bottom: -3px;
+    left: 50%;
+    transition: right 0.15s, left 0.15s;
+  }
+
+  &:hover, &:active, &:focus {
+    color: black;
+
+    &::after {
+      right: 1px;
+      left: -1px;
+    }
+  }
+}
+
+h1, h2, h3 {
+  font-family: $header-font-family;
+}
+
+h1 {
+  font-size: 5vw;
+}
+
+h2 {
+  font-size: 2.5em;
+  letter-spacing: 2px;
+
+  &::after {
+    content: "";
+    background-color: $primary-accent-color;
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    position: relative;
+    left: 5px;
+  }
+}
+
+h3 {
+  font-size: 2em;
+  letter-spacing: 2px;
+}
+
+p {
+  line-height: 1.5;
+  letter-spacing: 1px;
+}
