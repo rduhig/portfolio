@@ -14,7 +14,7 @@
 <body>
   <nav>
     <div class="content-wrapper">
-      <h3>RD</h3>
+      <h4>RD</h4>
       <ul>
         <li><a href="#about">About</a><span>/</span></li>
         <li><a href="#skills">Skills</a><span>/</span></li>
@@ -43,7 +43,7 @@
           <div class="about-image">
             <img src="https://source.unsplash.com/random/300x300" alt="Portraits of Robert Duhig with various expressions">
           </div>
-          <div class="about-info">
+          <div class="about-text">
             <p>I began coding websites at age 15 and have been passionate about web and software development ever since. My web applications provide a rich user experience and are fully responsive and accessible.</p>
             <p>When I'm not coding, you'll likely find me in the kitchen experimenting with new flavours and cooking styles. I've spent a few years working with coordinated teams under distinguished chefs in some of Toronto's highest-rated restaurants, and I bring many of those skills with me in my development career. You can expect me to be highly detail-oriented, methodical and a team-player.</p>
             <p>If you think I'd be a good fit for your team, let's chat!</p>
@@ -105,12 +105,41 @@
       </section>
       <section class="projects" id="projects">
         <h2>recent<span>_</span>projects<span>()</span></h2>
-  
+        <div class="projects-container">
+          <article class="project" data-aos="zoom-in">
+            <div class="project-image">
+              <img src="./assets/the-film-factory-project.png" alt="The Film Factory website displayed on desktop and mobile screens.">
+            </div>
+            <div class="project-text-left">
+              <h3>The Film Factory</h3>
+              <p>React // JavaScript // REST API // Firebase // Group programming</p>
+              <p>My team created a web app that recommends foreign-language films that are similar to English-language films the user enjoyed. The user can then push their chosen foreign-language and English-language film pair to a database so that other users can view their film choices.</p>
+              <p>
+                <a href="https://thefilmfour.github.io/theFilmFactory/" class="button">View Live</a>
+                <a href="https://github.com/thefilmfour/theFilmFactory" class="button">GitHub</a>
+              </p>
+            </div>
+          </article>
+          <article class="project" data-aos="zoom-in">
+            <div class="project-image">
+              <img src="./assets/memortree-match-project.png" alt="The MemorTree Match website displayed on desktop and mobile screens.">
+            </div>
+            <div class="project-text-right">
+              <h3>MemorTree Match</h3>
+              <p>JavaScript // HTML // CSS // REST API // Pair programming</p>
+              <p>We created a card-matching memory game based on trees you can spot around High Park. Once the user finished the game, they can learn about the trees they might encounter in Toronto.</p>
+              <p>
+                <a href="https://teamtreemendous.github.io/memorTreeMatch/" class="button">View Live</a>
+                <a href="https://github.com/TeamTreeMendous/memorTreeMatch" class="button">GitHub</a>
+              </p>
+            </div>
+          </article>
+        </div>
       </section>
       <section class="contact" id="contact">
         <h2>get<span>_</span>in<span>_</span>touch<span>()</span></h2>
         <div class="contact-container" data-aos="zoom-in">
-          <div class="contact-info">
+          <div class="contact-text">
             <p>Thanks for taking the time to look at my portfolio. If you'd like to connect, shoot me a message at:</p>
             <p><a href="mailto:robertduhig@zoho.com">robertduhig@zoho.com <i class="fas fa-paper-plane"></i></a></p>
             <p>Or find me on social media!</p>
@@ -130,14 +159,14 @@
             </ul>
           </div>
           <div class="contact-form">
-            <form>
+            <form name="contact" netlify>
               <label for="name" class="name-label">Name</label>
               <input type="text" id="name" class="name" placeholder="Name">
               <label for="email" class="email-label">Email</label>
               <input type="text" id="email" class="email" placeholder="Email">
               <label for="message" class="message-label">Message</label>
               <textarea id="message" class="message" placeholder="Message"></textarea>
-              <button type="submit">submit</button>
+              <button type="submit" class="button">Send</button>
             </form>
           </div>
         </div>
