@@ -1,3 +1,4 @@
+/* ~~~~~~~~~~~~~~~~~~~~ SETUP ~~~~~~~~~~~~~~~~~~~~ */
 a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
   margin: 0;
   padding: 0;
@@ -198,6 +199,7 @@ textarea {
   box-sizing: border-box;
 }
 
+/* ~~~~~~~~~~~~~~~~~~~~ SHARED ~~~~~~~~~~~~~~~~~~~~ */
 body {
   font-family: "Open Sans", sans-serif;
   background-color: white;
@@ -214,11 +216,11 @@ h1, h2, h3 {
 }
 
 h1 {
-  font-size: 5vw;
+  font-size: calc(1.5em + min(3vw, 36px));
 }
 
 h2 {
-  font-size: 2.5em;
+  font-size: calc(1.5em + min(1vw, 12px));
   letter-spacing: 2px;
 }
 
@@ -227,7 +229,7 @@ h2 span {
 }
 
 h3 {
-  font-size: 2em;
+  font-size: 2rem;
   letter-spacing: 2px;
   background-color: #e71d36;
   color: white;
@@ -266,6 +268,7 @@ a:hover::after, a:active::after, a:focus::after {
   left: -1px;
 }
 
+/* ~~~~~~~~~~~~~~~~~~~~ NAV ~~~~~~~~~~~~~~~~~~~~ */
 nav {
   background-color: #fbfbfb;
   -webkit-box-shadow: 0 0 20px -10px black;
@@ -289,6 +292,7 @@ nav div {
       -ms-flex-align: center;
           align-items: center;
   height: 100%;
+  padding: 0 calc(min(1vw, 12px));
 }
 
 nav h3 {
@@ -302,16 +306,17 @@ nav li {
 
 nav span {
   color: #708090;
-  padding: 0 10px;
+  padding: 0 calc(min(1vw, 12px));
 }
 
 .compressed {
   height: 50px;
 }
 
+/* ~~~~~~~~~~~~~~~~~~~~ HEADER ~~~~~~~~~~~~~~~~~~~~ */
 header {
-  background: -webkit-gradient(linear, left bottom, right top, from(#011627), color-stop(70%), to(#5d9cb5));
-  background: linear-gradient(to top right, #011627, 70%, #5d9cb5);
+  background: -webkit-gradient(linear, left bottom, right top, from(#011627), color-stop(60%), to(#5d9cb5));
+  background: linear-gradient(to top right, #011627, 60%, #5d9cb5);
   color: white;
   min-height: 100vh;
   display: -webkit-box;
@@ -323,7 +328,7 @@ header {
 }
 
 header h1 {
-  margin-bottom: 1vw;
+  margin-bottom: calc(min(1vw, 12px));
 }
 
 .intro-container {
@@ -336,7 +341,7 @@ header h1 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 80%;
+  width: 90%;
   max-width: 800px;
   margin: 0 auto;
 }
@@ -350,25 +355,26 @@ header h1 {
 }
 
 .intro {
-  padding: 2vw 4vw;
-  margin-top: 2vw;
+  padding: calc(min(2vw, 24px)) calc(min(4vw, 48px));
+  margin-top: calc(min(2vw, 24px));
 }
 
 .intro span {
   color: #ff9f1c;
 }
 
+/* ~~~~~~~~~~~~~~~~~~~~ ABOUT ~~~~~~~~~~~~~~~~~~~~ */
 .about, .skills, .projects, .contact {
-  padding: 3vw 0;
+  padding: calc(min(3vw, 36px)) calc(min(1vw, 12px));
 }
 
 .about-container {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 35% 1fr;
-      grid-template-columns: 35% 1fr;
-  gap: 4vw;
-  margin: 4vw 4vw 0;
+  -ms-grid-columns: 1fr 2fr;
+      grid-template-columns: 1fr 2fr;
+  gap: calc(min(4vw, 48px));
+  margin: calc(min(6vw, 72px)) calc(min(4vw, 48px)) 0;
 }
 
 .about-image {
@@ -384,17 +390,19 @@ header h1 {
   margin-bottom: 15px;
 }
 
+/* ~~~~~~~~~~~~~~~~~~~~ SKILLS ~~~~~~~~~~~~~~~~~~~~ */
 .skills-container {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[6];
       grid-template-columns: repeat(6, 1fr);
-  gap: 2vw;
-  margin: 4vw 4vw 0;
+  gap: calc(min(2vw, 24px));
+  margin: calc(min(6vw, 72px)) calc(min(4vw, 48px)) 0;
 }
 
 .skills-container li {
-  height: 130px;
+  height: calc(95px + min(3vw, 36px));
+  position: relative;
   text-align: center;
   -webkit-filter: brightness(100%);
           filter: brightness(100%);
@@ -414,26 +422,31 @@ header h1 {
 }
 
 .skills-container i {
-  font-size: 100px;
+  font-size: calc(65px + min(3vw, 36px));
 }
 
 .skills-container img {
-  height: 100px;
+  height: calc(65px + min(3vw, 36px));
   width: auto;
 }
 
 .skills-container p {
   height: 0;
+  position: absolute;
+  right: -50px;
+  left: -50px;
+  text-align: center;
   overflow: hidden;
 }
 
+/* ~~~~~~~~~~~~~~~~~~~~ CONTACT ~~~~~~~~~~~~~~~~~~~~ */
 .contact-container {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 1fr;
       grid-template-columns: 1fr 1fr;
-  gap: 4vw;
-  margin: 4vw 4vw 0;
+  gap: calc(min(4vw, 48px));
+  margin: calc(min(6vw, 72px)) calc(min(4vw, 48px)) 0;
 }
 
 .contact-form form {
@@ -454,7 +467,7 @@ header h1 {
   padding: 5px;
   border: none;
   border: 1px solid #cccccc;
-  margin-bottom: 2vw;
+  margin-bottom: calc(min(2vw, 24px));
   -webkit-transition: all 0.25s;
   transition: all 0.25s;
 }
@@ -473,7 +486,7 @@ header h1 {
   padding: 5px;
   border: none;
   border: 1px solid #cccccc;
-  margin-bottom: 2vw;
+  margin-bottom: calc(min(2vw, 24px));
   -ms-grid-row: 4;
   -ms-grid-column: 1;
   -ms-grid-column-span: 2;
@@ -548,7 +561,7 @@ header h1 {
   font-size: 3em;
   display: inline-block;
   position: relative;
-  margin-right: 2vw;
+  margin-right: calc(min(2vw, 24px));
   vertical-align: top;
 }
 
@@ -570,8 +583,8 @@ header h1 {
   font-size: 0.65rem;
   height: 0;
   position: absolute;
-  left: -50px;
   right: -50px;
+  left: -50px;
   text-align: center;
   overflow: hidden;
 }
@@ -591,7 +604,7 @@ header h1 {
 }
 
 .name {
-  margin-right: 1vw;
+  margin-right: calc(min(1vw, 12px));
   -ms-grid-row: 2;
   -ms-grid-column: 1;
   grid-area: name;
@@ -604,7 +617,7 @@ header h1 {
 }
 
 .email {
-  margin-left: 1vw;
+  margin-left: calc(min(1vw, 12px));
   -ms-grid-row: 2;
   -ms-grid-column: 2;
   grid-area: email;
@@ -617,12 +630,13 @@ header h1 {
   grid-area: message-label;
 }
 
+/* ~~~~~~~~~~~~~~~~~~~~ FOOTER ~~~~~~~~~~~~~~~~~~~~ */
 footer {
   font-weight: 300;
   background-color: #011627;
   color: white;
   text-align: center;
-  padding: 1vw 0;
+  padding: 10px 0;
 }
 
 footer i {
@@ -631,4 +645,54 @@ footer i {
 
 footer span {
   color: #ff9f1c;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~ MEDIA QUERIES ~~~~~~~~~~~~~~~~~~~~ */
+@media all and (max-width: 960px) {
+  .contact-form form {
+        grid-template-areas: "name-label name-label" "name name" "email-label email-label" "email email" "message-label message-label" "message message" "submit submit";
+  }
+  .contact-form input {
+    width: 100%;
+  }
+  .name {
+    margin-right: 0;
+  }
+  .email {
+    margin-left: 0;
+  }
+}
+
+@media all and (max-width: 770px) {
+  .skills-container {
+    -ms-grid-columns: (1fr)[4];
+        grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media all and (max-width: 680px) {
+  .about-container {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+  .about-image img {
+    max-width: 50%;
+  }
+  .contact-container {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+  .contact-container form {
+    margin-top: 15px;
+  }
+}
+
+@media all and (max-width: 460px) {
+  nav, footer {
+    font-size: 0.8em;
+  }
+  .skills-container {
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
+  }
 }

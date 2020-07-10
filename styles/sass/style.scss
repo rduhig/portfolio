@@ -1,4 +1,4 @@
-@import "./partials/mixins";
+// @import "./partials/mixins";
 @import "./partials/setup";
 
 $text-font-family: "Open Sans", sans-serif;
@@ -11,7 +11,7 @@ $primary-accent-color: #e71d36;
 $secondary-accent-color: #ff9f1c;
 $inactive-text-color: #708090;
 
-// ~~~~~~~~~~~~~~~~~~~~ SHARED ~~~~~~~~~~~~~~~~~~~~ //
+/* ~~~~~~~~~~~~~~~~~~~~ SHARED ~~~~~~~~~~~~~~~~~~~~ */
 
 body {
   font-family: $text-font-family;
@@ -29,11 +29,11 @@ h1, h2, h3 {
 }
 
 h1 {
-  font-size: 5vw;
+  font-size: calc(1.5em + min(3vw, 36px));
 }
 
 h2 {
-  font-size: 2.5em;
+  font-size: calc(1.5em + min(1vw, 12px));
   letter-spacing: 2px;
 
   span {
@@ -42,7 +42,7 @@ h2 {
 }
 
 h3 {
-  font-size: 2em;
+  font-size: 2rem;
   letter-spacing: 2px;
   background-color: $primary-accent-color;
   color: $body-background-color;
@@ -80,7 +80,7 @@ a {
   }
 }
 
-// ~~~~~~~~~~~~~~~~~~~~ NAV ~~~~~~~~~~~~~~~~~~~~ //
+/* ~~~~~~~~~~~~~~~~~~~~ NAV ~~~~~~~~~~~~~~~~~~~~ */
 
 nav {
   background-color: $nav-background-color;
@@ -96,6 +96,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     height: 100%;
+    padding: 0 calc(min(1vw, 12px));
   }
 
   h3 {
@@ -109,7 +110,7 @@ nav {
 
   span {
     color: $inactive-text-color;
-    padding: 0 10px;
+    padding: 0 calc(min(1vw, 12px));
   }
 }
 
@@ -117,17 +118,17 @@ nav {
   height: 50px;
 }
 
-// ~~~~~~~~~~~~~~~~~~~~ HEADER ~~~~~~~~~~~~~~~~~~~~ //
+/* ~~~~~~~~~~~~~~~~~~~~ HEADER ~~~~~~~~~~~~~~~~~~~~ */
 
 header {
-  background: linear-gradient(to top right, $footer-background-color, 70%, $header-background-color);
+  background: linear-gradient(to top right, $footer-background-color, 60%, $header-background-color);
   color: $body-background-color;
   min-height: 100vh;
   display: flex;
   align-items: center;
 
   h1 {
-    margin-bottom: 1vw;
+    margin-bottom: calc(min(1vw, 12px));
   }
 }
 
@@ -135,7 +136,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 80%;
+  width: 90%;
   max-width: 800px;
   margin: 0 auto;
 }
@@ -149,25 +150,25 @@ header {
 }
 
 .intro {
-  padding: 2vw 4vw;
-  margin-top: 2vw;
+  padding: calc(min(2vw, 24px)) calc(min(4vw, 48px));
+  margin-top: calc(min(2vw, 24px));
 
   span {
     color: $secondary-accent-color;
   }
 }
 
-// ~~~~~~~~~~~~~~~~~~~~ ABOUT ~~~~~~~~~~~~~~~~~~~~ //
+/* ~~~~~~~~~~~~~~~~~~~~ ABOUT ~~~~~~~~~~~~~~~~~~~~ */
 
 .about, .skills, .projects, .contact {
-  padding: 3vw 0;
+  padding: calc(min(3vw, 36px)) calc(min(1vw, 12px));
 }
 
 .about-container {
   display: grid;
-  grid-template-columns: 35% 1fr;
-  gap: 4vw;
-  margin: 4vw 4vw 0;
+  grid-template-columns: 1fr 2fr;
+  gap: calc(min(4vw, 48px));
+  margin: calc(min(6vw, 72px)) calc(min(4vw, 48px)) 0;
 }
 
 .about-image {
@@ -185,16 +186,17 @@ header {
   }
 }
 
-// ~~~~~~~~~~~~~~~~~~~~ SKILLS ~~~~~~~~~~~~~~~~~~~~ //
+/* ~~~~~~~~~~~~~~~~~~~~ SKILLS ~~~~~~~~~~~~~~~~~~~~ */
 
 .skills-container {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  gap: 2vw;
-  margin: 4vw 4vw 0;
+  gap: calc(min(2vw, 24px));
+  margin: calc(min(6vw, 72px)) calc(min(4vw, 48px)) 0;
 
   li {
-    height: 130px;
+    height: calc(95px + min(3vw, 36px));
+    position: relative;
     text-align: center;
     filter: brightness(100%);
     transition: all 0.25s;
@@ -210,27 +212,31 @@ header {
   }
 
   i {
-    font-size: 100px;
+    font-size: calc(65px + min(3vw, 36px));
   }
 
   img {
-    height: 100px;
+    height: calc(65px + min(3vw, 36px));
     width: auto;
   }
 
   p {
     height: 0;
+    position: absolute;
+    right: -50px;
+    left: -50px;
+    text-align: center;
     overflow: hidden;
   }
 }
 
-// ~~~~~~~~~~~~~~~~~~~~ CONTACT ~~~~~~~~~~~~~~~~~~~~ //
+/* ~~~~~~~~~~~~~~~~~~~~ CONTACT ~~~~~~~~~~~~~~~~~~~~ */
 
 .contact-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4vw;
-  margin: 4vw 4vw 0;
+  gap: calc(min(4vw, 48px));
+  margin: calc(min(6vw, 72px)) calc(min(4vw, 48px)) 0;
 }
 
 .contact-form {
@@ -256,7 +262,7 @@ header {
     padding: 5px;
     border: none;
     border: 1px solid #cccccc;
-    margin-bottom: 2vw;
+    margin-bottom: calc(min(2vw, 24px));
     transition: all 0.25s;
 
     &:focus {
@@ -273,7 +279,7 @@ header {
     padding: 5px;
     border: none;
     border: 1px solid #cccccc;
-    margin-bottom: 2vw;
+    margin-bottom: calc(min(2vw, 24px));
     grid-area: message;
     resize: none;
     transition: all 0.25s;
@@ -331,7 +337,7 @@ header {
     font-size: 3em;
     display: inline-block;
     position: relative;
-    margin-right: 2vw;
+    margin-right: calc(min(2vw, 24px));
     vertical-align: top;
 
     a {
@@ -351,8 +357,8 @@ header {
       font-size: 0.65rem;
       height: 0;
       position: absolute;
-      left: -50px;
       right: -50px;
+      left: -50px;
       text-align: center;
       overflow: hidden;
     }
@@ -374,7 +380,7 @@ header {
 }
 
 .name {
-  margin-right: 1vw;
+  margin-right: calc(min(1vw, 12px));
   grid-area: name;
 }
 
@@ -383,7 +389,7 @@ header {
 }
 
 .email {
-  margin-left: 1vw;
+  margin-left: calc(min(1vw, 12px));
   grid-area: email;
 }
 
@@ -391,14 +397,14 @@ header {
   grid-area: message-label;
 }
 
-// ~~~~~~~~~~~~~~~~~~~~ FOOTER ~~~~~~~~~~~~~~~~~~~~ //
+/* ~~~~~~~~~~~~~~~~~~~~ FOOTER ~~~~~~~~~~~~~~~~~~~~ */
 
 footer {
   font-weight: 300;
   background-color: $footer-background-color;
   color: $body-background-color;
   text-align: center;
-  padding: 1vw 0;
+  padding: 10px 0;
 
   i {
     color: red;
@@ -406,5 +412,68 @@ footer {
 
   span {
     color: $secondary-accent-color;
+  }
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~ MEDIA QUERIES ~~~~~~~~~~~~~~~~~~~~ */
+
+@media all and (max-width: 960px) {
+  .contact-form {
+    form {
+      grid-template-areas:
+        "name-label name-label"
+        "name name"
+        "email-label email-label"
+        "email email"
+        "message-label message-label"
+        "message message"
+        "submit submit";
+    }
+
+    input {
+      width: 100%;
+    }
+  }
+
+  .name {
+    margin-right: 0;
+  }
+
+  .email {
+    margin-left: 0;
+  }
+}
+
+@media all and (max-width: 770px) {
+  .skills-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media all and (max-width: 680px) {
+  .about-container {
+    grid-template-columns: 1fr;
+  }
+
+  .about-image img {
+    max-width: 50%;
+  }
+
+  .contact-container {
+    grid-template-columns: 1fr;
+
+    form {
+      margin-top: 15px;
+    }
+  }
+}
+
+@media all and (max-width: 460px) {
+  nav, footer {
+    font-size: 0.8em;
+  }
+
+  .skills-container {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
