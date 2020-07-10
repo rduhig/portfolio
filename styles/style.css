@@ -222,14 +222,8 @@ h2 {
   letter-spacing: 2px;
 }
 
-h2::after {
-  content: "";
-  background-color: #e71d36;
-  width: 10px;
-  height: 10px;
-  display: inline-block;
-  position: relative;
-  left: 5px;
+h2 span {
+  color: #e71d36;
 }
 
 h3 {
@@ -259,8 +253,8 @@ a::after {
   right: 50%;
   bottom: -3px;
   left: 50%;
-  -webkit-transition: right 0.15s, left 0.15s;
-  transition: right 0.15s, left 0.15s;
+  -webkit-transition: all 0.15s;
+  transition: all 0.15s;
 }
 
 a:hover, a:active, a:focus {
@@ -274,14 +268,14 @@ a:hover::after, a:active::after, a:focus::after {
 
 nav {
   background-color: #fbfbfb;
-  -webkit-box-shadow: 0px 10px 10px -12px black;
-          box-shadow: 0px 10px 10px -12px black;
+  -webkit-box-shadow: 0 0 20px -10px black;
+          box-shadow: 0 0 20px -10px black;
   width: 100%;
   height: 80px;
   position: fixed;
   z-index: 1;
-  -webkit-transition: height 0.25s;
-  transition: height 0.25s;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
 }
 
 nav div {
@@ -373,8 +367,8 @@ header h1 {
   display: grid;
   -ms-grid-columns: 35% 1fr;
       grid-template-columns: 35% 1fr;
-  gap: 2vw;
-  margin: 4vw 8vw 0;
+  gap: 4vw;
+  margin: 4vw 4vw 0;
 }
 
 .about-image {
@@ -400,39 +394,227 @@ header h1 {
 }
 
 .skills-container li {
-  height: 150px;
+  height: 130px;
   text-align: center;
   -webkit-filter: brightness(100%);
           filter: brightness(100%);
-  -webkit-transition: -webkit-filter 0.25s, -webkit-transform 0.25s;
-  transition: -webkit-filter 0.25s, -webkit-transform 0.25s;
-  transition: filter 0.25s, transform 0.25s;
-  transition: filter 0.25s, transform 0.25s, -webkit-filter 0.25s, -webkit-transform 0.25s;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
 }
 
-.skills-container li:hover {
+.skills-container li:hover, .skills-container li:focus {
   -webkit-filter: brightness(110%);
           filter: brightness(110%);
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
 }
 
-.skills-container li:hover p {
+.skills-container li:hover p, .skills-container li:focus p {
   height: auto;
 }
 
 .skills-container i {
-  font-size: 120px;
+  font-size: 100px;
 }
 
 .skills-container img {
-  height: 120px;
+  height: 100px;
   width: auto;
 }
 
 .skills-container p {
   height: 0;
   overflow: hidden;
+}
+
+.contact-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  gap: 4vw;
+  margin: 4vw 4vw 0;
+}
+
+.contact-form form {
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: "name-label email-label" "name email" "message-label message-label" "message message" "submit submit";
+}
+
+.contact-form label {
+  display: block;
+  height: 0;
+  overflow: hidden;
+}
+
+.contact-form input {
+  display: block;
+  width: calc(100% - 1vw);
+  padding: 5px;
+  border: none;
+  border: 1px solid #cccccc;
+  margin-bottom: 2vw;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+}
+
+.contact-form input:focus {
+  border-color: black;
+  -webkit-box-shadow: 0 0 20px -10px black;
+          box-shadow: 0 0 20px -10px black;
+}
+
+.contact-form textarea {
+  font-family: inherit;
+  display: block;
+  width: 100%;
+  height: 200px;
+  padding: 5px;
+  border: none;
+  border: 1px solid #cccccc;
+  margin-bottom: 2vw;
+  -ms-grid-row: 4;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: message;
+  resize: none;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+}
+
+.contact-form textarea:focus {
+  border-color: black;
+  -webkit-box-shadow: 0 0 20px -10px black;
+          box-shadow: 0 0 20px -10px black;
+}
+
+.contact-form button {
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 1px;
+  background-color: #011627;
+  color: #ff9f1c;
+  width: 100%;
+  max-width: 200px;
+  padding: 5px;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  margin: 0 auto;
+  -ms-grid-row: 5;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: submit;
+  -webkit-transition: all 0.15s;
+  transition: all 0.15s;
+}
+
+.contact-form button:hover, .contact-form button:active, .contact-form button:focus {
+  border-color: #ff9f1c;
+  -webkit-box-shadow: 0 0 20px -10px black;
+          box-shadow: 0 0 20px -10px black;
+}
+
+.contact-form ::-webkit-input-placeholder {
+  color: #708090;
+}
+
+.contact-form :-ms-input-placeholder {
+  color: #708090;
+}
+
+.contact-form ::-ms-input-placeholder {
+  color: #708090;
+}
+
+.contact-form ::placeholder {
+  color: #708090;
+}
+
+.contact-info p {
+  margin-bottom: 25px;
+}
+
+.contact-info a[href^=mailto] i {
+  color: white;
+  -webkit-transition: all 0.15s;
+  transition: all 0.15s;
+}
+
+.contact-info a[href^=mailto]:hover i, .contact-info a[href^=mailto]:active i, .contact-info a[href^=mailto]:focus i {
+  color: #e71d36;
+}
+
+.contact-info li {
+  font-size: 3em;
+  display: inline-block;
+  position: relative;
+  margin-right: 2vw;
+  vertical-align: top;
+}
+
+.contact-info li a {
+  color: black;
+  -webkit-transition: all 0.15s;
+  transition: all 0.15s;
+}
+
+.contact-info li a:hover, .contact-info li a:active, .contact-info li a:focus {
+  color: #e71d36;
+}
+
+.contact-info li a:hover::after, .contact-info li a:active::after, .contact-info li a:focus::after {
+  display: none;
+}
+
+.contact-info li p {
+  font-size: 0.65rem;
+  height: 0;
+  position: absolute;
+  left: -50px;
+  right: -50px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.contact-info li:hover p, .contact-info li:active p, .contact-info li:focus p {
+  height: auto;
+}
+
+.contact-info li:last-of-type {
+  margin-right: 0;
+}
+
+.name-label {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: name-label;
+}
+
+.name {
+  margin-right: 1vw;
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: name;
+}
+
+.email-label {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: email-label;
+}
+
+.email {
+  margin-left: 1vw;
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: email;
+}
+
+.message-label {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: message-label;
 }
 
 footer {
@@ -445,4 +627,8 @@ footer {
 
 footer i {
   color: red;
+}
+
+footer span {
+  color: #ff9f1c;
 }
