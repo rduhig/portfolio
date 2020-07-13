@@ -378,12 +378,8 @@ header h1 {
   margin: 0 auto;
 }
 
-.left-bracket {
-  font-size: 20vw;
-}
-
-.right-bracket {
-  font-size: 20vw;
+.left-bracket, .right-bracket {
+  font-size: calc(min(20vw, 240px));
 }
 
 .intro {
@@ -406,6 +402,9 @@ header h1 {
   -ms-grid-columns: 1fr 2fr;
       grid-template-columns: 1fr 2fr;
   gap: calc(min(4vw, 48px));
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin: calc(min(6vw, 72px)) calc(min(4vw, 48px)) 0;
 }
 
@@ -413,8 +412,23 @@ header h1 {
   text-align: center;
 }
 
-.about-image img {
+.about-image-container {
   border-radius: 50%;
+  overflow: hidden;
+}
+
+.about-image-container img {
+  -webkit-filter: blur(0);
+          filter: blur(0);
+  -webkit-transition: -webkit-filter 0.5s;
+  transition: -webkit-filter 0.5s;
+  transition: filter 0.5s;
+  transition: filter 0.5s, -webkit-filter 0.5s;
+}
+
+.about-image-container img.blur {
+  -webkit-filter: blur(50px);
+          filter: blur(50px);
 }
 
 .about-text p {
@@ -495,17 +509,21 @@ header h1 {
   margin-top: 15px;
 }
 
-.project-text-left a, .project-text-right a {
+.project-text-left p:last-of-type, .project-text-right p:last-of-type {
+  margin-bottom: 15px;
+}
+
+.links a {
   display: inline-block;
   width: 120px;
   text-align: center;
 }
 
-.project-text-left a:hover, .project-text-left a:active, .project-text-left a:focus, .project-text-right a:hover, .project-text-right a:active, .project-text-right a:focus {
+.links a:hover, .links a:active, .links a:focus {
   color: #ff9f1c;
 }
 
-.project-text-left a::after, .project-text-right a::after {
+.links a::after {
   display: none;
 }
 
@@ -540,7 +558,7 @@ header h1 {
 
 .contact-form input {
   display: block;
-  width: calc(100% - 1vw);
+  width: calc(100% - min(1vw, 12px));
   padding: 5px;
   border: none;
   border: 1px solid #cccccc;
@@ -737,8 +755,9 @@ footer span {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
   }
-  .about-image img {
+  .about-image .test {
     max-width: 50%;
+    margin: 0 auto;
   }
   .project {
     -ms-grid-columns: 1fr;

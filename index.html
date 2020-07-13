@@ -41,7 +41,9 @@
         <h2>about<span>_</span>me<span>()</span></h2>
         <div class="about-container" data-aos="zoom-in">
           <div class="about-image">
-            <img src="./assets/portraits/robert-1.png" alt="Portraits of Robert Duhig with various expressions.">
+            <div class="about-image-container">
+              <img src="./assets/portraits/robert-1.png" alt="Portraits of Robert Duhig with various expressions.">
+            </div>
           </div>
           <div class="about-text">
             <p>I began coding websites at age 15 and have been passionate about web and software development ever since. My web applications provide a rich user experience and are fully responsive and accessible.</p>
@@ -112,12 +114,12 @@
             </div>
             <div class="project-text-left">
               <h3>The Film Factory</h3>
-              <p>React // JavaScript // REST API // Firebase // Group programming</p>
+              <p>React // JavaScript // REST API // Firebase // Group programming with <a href="https://eyelmordido.com/" target="_blank">Eyel</a>, <a href="https://www.melahls.dev/" target="_blank">Melissa</a> and <a href="https://www.taylorrobertson.com/" target="_blank">Taylor</a></p>
               <p>My team created a web app that recommends foreign-language films that are similar to English-language films the user enjoyed. The user can then push their chosen foreign-language and English-language film pair to a database so that other users can view their film choices.</p>
-              <p>
-                <a href="https://thefilmfour.github.io/theFilmFactory/" class="button">View Live</a>
-                <a href="https://github.com/thefilmfour/theFilmFactory" class="button">GitHub</a>
-              </p>
+              <div class="links">
+                <a href="https://thefilmfour.github.io/theFilmFactory/" target="_blank" class="button">View Live</a>
+                <a href="https://github.com/thefilmfour/theFilmFactory" target="_blank" class="button">GitHub</a>
+              </div>
             </div>
           </article>
           <article class="project" data-aos="zoom-in">
@@ -126,12 +128,12 @@
             </div>
             <div class="project-text-right">
               <h3>MemorTree Match</h3>
-              <p>JavaScript // HTML // CSS // REST API // Pair programming</p>
+              <p>JavaScript // HTML // CSS // REST API // Pair programming with <a href="https://www.anastasiamay.com/" target="blank">Anastasia</a></p>
               <p>We created a card-matching memory game based on trees you can spot around High Park. Once the user finished the game, they can learn about the trees they might encounter in Toronto.</p>
-              <p>
-                <a href="https://teamtreemendous.github.io/memorTreeMatch/" class="button">View Live</a>
-                <a href="https://github.com/TeamTreeMendous/memorTreeMatch" class="button">GitHub</a>
-              </p>
+              <div class="links">
+                <a href="https://teamtreemendous.github.io/memorTreeMatch/" target="_blank" class="button">View Live</a>
+                <a href="https://github.com/TeamTreeMendous/memorTreeMatch" target="_blank" class="button">GitHub</a>
+              </div>
             </div>
           </article>
         </div>
@@ -145,27 +147,31 @@
             <p>Or find me on social media!</p>
             <ul>
               <li>
-                <a href="https://www.linkedin.com/in/robert-duhig-4238321ab/"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.linkedin.com/in/robert-duhig-4238321ab/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                 <p>LinkedIn</p>
               </li>
               <li>
-                <a href="https://github.com/rduhig"><i class="fab fa-github-square"></i></a>
+                <a href="https://github.com/rduhig" target="_blank"><i class="fab fa-github"></i></a>
                 <p>GitHub</p>
               </li>
               <li>
-                <a href="https://twitter.com/robert_duhig"><i class="fab fa-twitter-square"></i></a>
+                <a href="https://twitter.com/robert_duhig" target="_blank"><i class="fab fa-twitter"></i></a>
                 <p>Twitter</p>
+              </li>
+              <li>
+                <a href="https://medium.com/@robertduhig" target="_blank"><i class="fab fa-medium-m"></i></a>
+                <p>Medium</p>
               </li>
             </ul>
           </div>
           <div class="contact-form">
             <form name="contact" netlify>
               <label for="name" class="name-label">Name</label>
-              <input type="text" id="name" name="name" class="name" placeholder="Name">
+              <input type="text" id="name" name="name" class="name" placeholder="Name" required>
               <label for="email" class="email-label">Email</label>
-              <input type="text" id="email" name="email" class="email" placeholder="Email">
+              <input type="email" id="email" name="email" class="email" placeholder="Email" required>
               <label for="message" class="message-label">Message</label>
-              <textarea id="message" name="message" class="message" placeholder="Message"></textarea>
+              <textarea id="message" name="message" class="message" placeholder="Message" required></textarea>
               <button type="submit" class="button">Send</button>
             </form>
           </div>

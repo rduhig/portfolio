@@ -169,12 +169,8 @@ header {
   margin: 0 auto;
 }
 
-.left-bracket {
-  font-size: 20vw;
-}
-
-.right-bracket {
-  font-size: 20vw;
+.left-bracket, .right-bracket {
+  font-size: calc(min(20vw, 240px));
 }
 
 .intro {
@@ -196,14 +192,25 @@ header {
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: calc(min(4vw, 48px));
+  align-items: center;
   margin: calc(min(6vw, 72px)) calc(min(4vw, 48px)) 0;
 }
 
 .about-image {
   text-align: center;
+}
+
+.about-image-container {
+  border-radius: 50%;
+  overflow: hidden;
 
   img {
-    border-radius: 50%;
+    filter: blur(0);
+    transition: filter 0.5s;
+
+    &.blur {
+      filter: blur(50px);
+    }
   }
 }
 
@@ -278,8 +285,14 @@ header {
 .project-text-left, .project-text-right {
   p {
     margin-top: 15px;
-  }
 
+    &:last-of-type {
+      margin-bottom: 15px;
+    }
+  }
+}
+
+.links {
   a {
     display: inline-block;
     width: 120px;
@@ -328,7 +341,7 @@ header {
 
   input {
     display: block;
-    width: calc(100% - 1vw);
+    width: calc(100% - min(1vw, 12px));
     padding: 5px;
     border: none;
     border: 1px solid #cccccc;
@@ -512,8 +525,9 @@ footer {
     grid-template-columns: 1fr;
   }
 
-  .about-image img {
+  .about-image .test {
     max-width: 50%;
+    margin: 0 auto;
   }
 
   .project {
