@@ -1081,11 +1081,11 @@ footer span {
   h2 {
     font-size: calc(1.5em + 12px);
   }
-  nav div {
-    padding: 0 12px;
-  }
   nav span {
     padding: 0 12px;
+  }
+  .nav-top-panel {
+    padding: 0 24px;
   }
   header h1 {
     margin-bottom: 12px;
