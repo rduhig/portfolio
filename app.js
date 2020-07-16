@@ -48,8 +48,7 @@ app.cycleImages = (imgPaths, $targetImg) => {
 app.clickEmail = () => {
   $("a[href^='mailto'").on("click", function (e) {
     e.preventDefault();
-    const href = $(this).attr("href");
-    window.location.href = href.replace("email", "zoho");
+    window.location.href = $(this).attr("href").replace("myemail", "zoho");
   });
 };
 

@@ -230,11 +230,6 @@ h2 span {
 h3 {
   font-size: 1.5em;
   letter-spacing: 1px;
-  text-decoration: underline;
-  -webkit-text-decoration-color: #e71d36;
-          text-decoration-color: #e71d36;
-  text-decoration-thickness: 2px;
-  text-underline-position: under;
 }
 
 h4 {
@@ -254,6 +249,8 @@ a {
   letter-spacing: 2px;
   text-decoration: none;
   position: relative;
+  -webkit-transition: all 0.15s;
+  transition: all 0.15s;
 }
 
 a::after {
@@ -805,7 +802,22 @@ header h1 {
 }
 
 .project-text-left p:first-of-type, .project-text-right p:first-of-type {
-  margin-top: 36px;
+  margin-top: 24px;
+}
+
+.project-text-left a span, .project-text-right a span {
+  direction: rtl;
+  unicode-bidi: -webkit-isolate;
+  unicode-bidi: isolate;
+}
+
+.project-text-left a i, .project-text-right a i {
+  -webkit-transition: all 0.15s;
+  transition: all 0.15s;
+}
+
+.project-text-left a:hover i, .project-text-left a:active i, .project-text-left a:focus i, .project-text-right a:hover i, .project-text-right a:active i, .project-text-right a:focus i {
+  color: #e71d36;
 }
 
 .links a {
@@ -842,19 +854,19 @@ header h1 {
   margin-bottom: 25px;
 }
 
-.contact-text a[href^=mailto] i:last-of-type {
+.contact-text a[href^=mailto] span {
+  direction: rtl;
+  unicode-bidi: isolate-override;
+}
+
+.contact-text a[href^=mailto] i {
   color: white;
   -webkit-transition: all 0.15s;
   transition: all 0.15s;
 }
 
-.contact-text a[href^=mailto]:hover i:last-of-type, .contact-text a[href^=mailto]:active i:last-of-type, .contact-text a[href^=mailto]:focus i:last-of-type {
+.contact-text a[href^=mailto]:hover i, .contact-text a[href^=mailto]:active i, .contact-text a[href^=mailto]:focus i {
   color: #e71d36;
-}
-
-.contact-text a[href^=mailto] span {
-  unicode-bidi: bidi-override;
-  direction: rtl;
 }
 
 .contact-text li {
