@@ -15,6 +15,7 @@ $inactive-text-color: #708090;
 body {
   font-family: $text-font-family;
   background-color: $body-background-color;
+  overflow-x: hidden;
 }
 
 h1, h2, h3, h4 {
@@ -139,7 +140,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   height: 80px;
-  padding: 0 1vw;
+  padding: 0 2vw;
   transition: all 0.25s;
 
   h4 {
@@ -286,7 +287,7 @@ nav {
     }
 
     &.mobile {
-      font-size: 1.5em;
+      font-size: 2em;
       align-self: stretch;
       width: 100%;
       display: block;
@@ -300,7 +301,7 @@ nav {
       }
 
       li + li {
-        margin-top: 15px;
+        margin-top: 30px;
       }
 
       span {
@@ -346,18 +347,20 @@ header {
   }
 }
 
-/* ~~~~~~~~~~~~~~~~~~~~ ABOUT ~~~~~~~~~~~~~~~~~~~~ */
+/* ~~~~~~~~~~~~~~~~~~~~ MAIN ~~~~~~~~~~~~~~~~~~~~ */
 
 .about, .skills, .projects, .contact {
-  padding: 3vw 1vw;
+  padding: 48px 2vw;
 }
+
+/* ~~~~~~~~~~~~~~~~~~~~ ABOUT ~~~~~~~~~~~~~~~~~~~~ */
 
 .about-container {
   display: grid;
   grid-template-columns: 1fr;
   gap: 4vw;
   align-items: center;
-  margin: 6vw 4vw 0;
+  margin: 48px 4vw 0;
 }
 
 .about-image {
@@ -392,7 +395,7 @@ header {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2vw;
-  margin: 6vw 4vw 0;
+  margin: 48px 4vw 0;
 
   li {
     height: calc(95px + 3vw);
@@ -428,7 +431,7 @@ header {
 /* ~~~~~~~~~~~~~~~~~~~~ PROJECTS ~~~~~~~~~~~~~~~~~~~~ */
 
 .projects-container {
-  margin: 6vw 4vw 0;
+  margin: 48px 4vw 0;
 }
 
 .project {
@@ -436,19 +439,17 @@ header {
   grid-template-columns: 1fr;
   gap: 4vw;
   align-items: center;
-  padding: 4vw 0;
-
-  &:last-of-type {
-    padding-bottom: 0;
-  }
+  margin-top: 64px;
 }
 
 .project-text-left, .project-text-right {
+  margin-top: 24px;
+
   p {
-    margin-bottom: 15px;
+    margin-bottom: 24px;
 
     &:first-of-type {
-      margin-top: 25px;
+      margin-top: 36px;
     }
   }
 }
@@ -456,8 +457,10 @@ header {
 .links {
   a {
     display: inline-block;
-    width: 120px;
+    width: 150px;
+    padding: 10px 5px;
     text-align: center;
+    vertical-align: middle;
 
     &:hover, &:active, &:focus {
       color: $secondary-accent-color;
@@ -465,6 +468,10 @@ header {
 
     &::after {
       display: none;
+    }
+
+    & + a {
+      margin-left: 12px;
     }
   }
 }
@@ -475,7 +482,7 @@ header {
   display: grid;
   grid-template-columns: 1fr;
   gap: 4vw;
-  margin: 6vw 4vw 0;
+  margin: 48px 4vw 0;
 }
 
 .contact-text {
@@ -500,7 +507,6 @@ header {
     font-size: 3em;
     display: inline-block;
     position: relative;
-    margin-right: 2vw;
     vertical-align: top;
 
     a {
@@ -525,8 +531,8 @@ header {
       overflow: hidden;
     }
     
-    &:last-of-type {
-      margin-right: 0;
+    & + li {
+      margin-left: 24px;
     }
   }
 }
@@ -535,7 +541,7 @@ header {
   form {
     display: grid;
     grid-template-columns: 1fr;
-    margin-top: 15px;
+    margin-top: 48px;
   }
 
   label {
@@ -550,7 +556,7 @@ header {
     padding: 5px;
     border: none;
     border: 1px solid #cccccc;
-    margin-bottom: 2vw;
+    margin-bottom: 24px;
     transition: all 0.25s;
 
     &:focus {
@@ -567,7 +573,7 @@ header {
     padding: 5px;
     border: none;
     border: 1px solid #cccccc;
-    margin-bottom: 2vw;
+    margin-bottom: 24px;
     resize: none;
     transition: all 0.25s;
 
@@ -643,6 +649,10 @@ footer {
     grid-template-columns: 1fr 1fr;
   }
 
+  .project-text-left, .project-text-right {
+    margin-top: 0;
+  }
+
   .project-text-left {
     order: -1;
     text-align: right;
@@ -700,7 +710,7 @@ footer {
     }
 
     input {
-      width: calc(100% - 1vw);
+      width: calc(100% - 12px);
     }
 
     button {
@@ -761,17 +771,17 @@ footer {
   }
 
   .about, .skills, .projects, .contact {
-    padding: 36px 12px;
+    padding: 48px 24px;
   }
 
   .about-container {
     gap: 48px;
-    margin: 72px 48px 0;
+    margin: 48px 48px 0;
   }
 
   .skills-container {
     gap: 24px;
-    margin: 72px 48px 0;
+    margin: 48px 48px 0;
   
     li {
       height: calc(95px + 36px);
@@ -787,34 +797,16 @@ footer {
   }
 
   .projects-container {
-    margin: 72px 48px 0;
+    margin: 48px 48px 0;
   }
 
   .project {
     gap: 48px;
-    padding: 48px 0;
   }
 
   .contact-container {
     gap: 48px;
-    margin: 72px 48px 0;
-  }
-
-  .contact-form {
-    input {
-      width: calc(100% - 12px);
-      margin-bottom: 24px;
-    }
-  
-    textarea {
-      margin-bottom: 24px;
-    }
-  }
-
-  .contact-text {
-    li {
-      margin-right: 24px;
-    }
+    margin: 48px 48px 0;
   }
 
   .name {

@@ -203,6 +203,7 @@ textarea {
 body {
   font-family: "Open Sans", sans-serif;
   background-color: white;
+  overflow-x: hidden;
 }
 
 h1, h2, h3, h4 {
@@ -339,7 +340,7 @@ nav.expanded {
       -ms-flex-align: center;
           align-items: center;
   height: 80px;
-  padding: 0 1vw;
+  padding: 0 2vw;
   -webkit-transition: all 0.25s;
   transition: all 0.25s;
 }
@@ -612,7 +613,7 @@ nav.expanded {
 }
 
 .nav-top-panel ul.mobile {
-  font-size: 1.5em;
+  font-size: 2em;
   -ms-flex-item-align: stretch;
       -ms-grid-row-align: stretch;
       align-self: stretch;
@@ -630,7 +631,7 @@ nav.expanded {
 }
 
 .nav-top-panel ul.mobile li + li {
-  margin-top: 15px;
+  margin-top: 30px;
 }
 
 .nav-top-panel ul.mobile span {
@@ -683,11 +684,12 @@ header h1 {
   color: #ff9f1c;
 }
 
-/* ~~~~~~~~~~~~~~~~~~~~ ABOUT ~~~~~~~~~~~~~~~~~~~~ */
+/* ~~~~~~~~~~~~~~~~~~~~ MAIN ~~~~~~~~~~~~~~~~~~~~ */
 .about, .skills, .projects, .contact {
-  padding: 3vw 1vw;
+  padding: 48px 2vw;
 }
 
+/* ~~~~~~~~~~~~~~~~~~~~ ABOUT ~~~~~~~~~~~~~~~~~~~~ */
 .about-container {
   display: -ms-grid;
   display: grid;
@@ -697,7 +699,7 @@ header h1 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 6vw 4vw 0;
+  margin: 48px 4vw 0;
 }
 
 .about-image {
@@ -736,7 +738,7 @@ header h1 {
   -ms-grid-columns: (1fr)[3];
       grid-template-columns: repeat(3, 1fr);
   gap: 2vw;
-  margin: 6vw 4vw 0;
+  margin: 48px 4vw 0;
 }
 
 .skills-container li {
@@ -775,7 +777,7 @@ header h1 {
 
 /* ~~~~~~~~~~~~~~~~~~~~ PROJECTS ~~~~~~~~~~~~~~~~~~~~ */
 .projects-container {
-  margin: 6vw 4vw 0;
+  margin: 48px 4vw 0;
 }
 
 .project {
@@ -787,25 +789,27 @@ header h1 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 4vw 0;
+  margin-top: 64px;
 }
 
-.project:last-of-type {
-  padding-bottom: 0;
+.project-text-left, .project-text-right {
+  margin-top: 24px;
 }
 
 .project-text-left p, .project-text-right p {
-  margin-bottom: 15px;
+  margin-bottom: 24px;
 }
 
 .project-text-left p:first-of-type, .project-text-right p:first-of-type {
-  margin-top: 25px;
+  margin-top: 36px;
 }
 
 .links a {
   display: inline-block;
-  width: 120px;
+  width: 150px;
+  padding: 10px 5px;
   text-align: center;
+  vertical-align: middle;
 }
 
 .links a:hover, .links a:active, .links a:focus {
@@ -816,6 +820,10 @@ header h1 {
   display: none;
 }
 
+.links a + a {
+  margin-left: 12px;
+}
+
 /* ~~~~~~~~~~~~~~~~~~~~ CONTACT ~~~~~~~~~~~~~~~~~~~~ */
 .contact-container {
   display: -ms-grid;
@@ -823,7 +831,7 @@ header h1 {
   -ms-grid-columns: 1fr;
       grid-template-columns: 1fr;
   gap: 4vw;
-  margin: 6vw 4vw 0;
+  margin: 48px 4vw 0;
 }
 
 .contact-text p {
@@ -844,7 +852,6 @@ header h1 {
   font-size: 3em;
   display: inline-block;
   position: relative;
-  margin-right: 2vw;
   vertical-align: top;
 }
 
@@ -871,8 +878,8 @@ header h1 {
   overflow: hidden;
 }
 
-.contact-text li:last-of-type {
-  margin-right: 0;
+.contact-text li + li {
+  margin-left: 24px;
 }
 
 .contact-form form {
@@ -880,7 +887,7 @@ header h1 {
   display: grid;
   -ms-grid-columns: 1fr;
       grid-template-columns: 1fr;
-  margin-top: 15px;
+  margin-top: 48px;
 }
 
 .contact-form label {
@@ -895,7 +902,7 @@ header h1 {
   padding: 5px;
   border: none;
   border: 1px solid #cccccc;
-  margin-bottom: 2vw;
+  margin-bottom: 24px;
   -webkit-transition: all 0.25s;
   transition: all 0.25s;
 }
@@ -914,7 +921,7 @@ header h1 {
   padding: 5px;
   border: none;
   border: 1px solid #cccccc;
-  margin-bottom: 2vw;
+  margin-bottom: 24px;
   resize: none;
   -webkit-transition: all 0.25s;
   transition: all 0.25s;
@@ -996,6 +1003,9 @@ footer span {
     -ms-grid-columns: 1fr 1fr;
         grid-template-columns: 1fr 1fr;
   }
+  .project-text-left, .project-text-right {
+    margin-top: 0;
+  }
   .project-text-left {
     -webkit-box-ordinal-group: 0;
         -ms-flex-order: -1;
@@ -1036,7 +1046,7 @@ footer span {
         grid-template-columns: 1fr 1fr;
   }
   .contact-form input {
-    width: calc(100% - 1vw);
+    width: calc(100% - 12px);
   }
   .contact-form button {
     -ms-grid-column: span 2;
@@ -1084,15 +1094,15 @@ footer span {
     margin-top: 24px;
   }
   .about, .skills, .projects, .contact {
-    padding: 36px 12px;
+    padding: 48px 24px;
   }
   .about-container {
     gap: 48px;
-    margin: 72px 48px 0;
+    margin: 48px 48px 0;
   }
   .skills-container {
     gap: 24px;
-    margin: 72px 48px 0;
+    margin: 48px 48px 0;
   }
   .skills-container li {
     height: calc(95px + 36px);
@@ -1104,25 +1114,14 @@ footer span {
     height: calc(65px + 36px);
   }
   .projects-container {
-    margin: 72px 48px 0;
+    margin: 48px 48px 0;
   }
   .project {
     gap: 48px;
-    padding: 48px 0;
   }
   .contact-container {
     gap: 48px;
-    margin: 72px 48px 0;
-  }
-  .contact-form input {
-    width: calc(100% - 12px);
-    margin-bottom: 24px;
-  }
-  .contact-form textarea {
-    margin-bottom: 24px;
-  }
-  .contact-text li {
-    margin-right: 24px;
+    margin: 48px 48px 0;
   }
   .name {
     margin-right: 12px;
