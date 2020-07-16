@@ -1,8 +1,18 @@
 const app = {};
 
+app.mobileMenu = () => {
+  $("nav button").on("click", function() {
+    $(this).toggleClass("active not-active");
+    $("nav").toggleClass("expanded");
+    $("nav ul").toggleClass("mobile");
+    $(window).trigger("scroll");
+  });
+};
+
 app.smoothScroll = () => {
   $("[href^='#']").click(function (e) {
     e.preventDefault();
+    $("nav button.active").trigger("click");
     $('html, body').animate({
       scrollTop: $($(this).attr("href")).offset().top - 50
     }, 500);
@@ -12,10 +22,12 @@ app.smoothScroll = () => {
 app.animateNav = () => {
   const $nav = $("nav");
   $(window).on("scroll", () => {
-    if($(this).scrollTop()) {
-      $nav.attr("class", "compressed");
-    } else {
-      $nav.removeClass("compressed");
+    if (!$nav.hasClass("expanded")) {
+      if($(this).scrollTop()) {
+        $nav.attr("class", "compressed");
+      } else {
+        $nav.removeClass("compressed");
+      }
     }
   }).trigger("scroll");
 };
@@ -29,8 +41,8 @@ app.cycleImages = (imgPaths, $targetImg) => {
         $targetImg.removeClass("blur");
       });
       index = (index + 1) % imgPaths.length;
-    }, 500);
-  }, 5000);
+    }, 250);
+  }, 10000);
 };
 
 app.init = () => {
@@ -42,6 +54,7 @@ app.init = () => {
     "./assets/portraits/robert-5.png"
   ];
   $portraitImg = $(".about-image img");
+  app.mobileMenu();
   app.smoothScroll();
   app.animateNav();
   app.cycleImages(portraitPaths, $portraitImg);
