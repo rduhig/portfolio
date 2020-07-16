@@ -45,6 +45,14 @@ app.cycleImages = (imgPaths, $targetImg) => {
   }, 10000);
 };
 
+app.clickEmail = () => {
+  $("a[href^='mailto'").on("click", function (e) {
+    e.preventDefault();
+    const href = $(this).attr("href");
+    window.location.href = href.replace("email", "zoho");
+  });
+};
+
 app.init = () => {
   const portraitPaths = [
     "./assets/portraits/robert-1.png",
@@ -58,6 +66,7 @@ app.init = () => {
   app.smoothScroll();
   app.animateNav();
   app.cycleImages(portraitPaths, $portraitImg);
+  app.clickEmail();
 };
 
 $(() => {

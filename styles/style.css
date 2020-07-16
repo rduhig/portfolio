@@ -842,14 +842,19 @@ header h1 {
   margin-bottom: 25px;
 }
 
-.contact-text a[href^=mailto] i {
+.contact-text a[href^=mailto] i:last-of-type {
   color: white;
   -webkit-transition: all 0.15s;
   transition: all 0.15s;
 }
 
-.contact-text a[href^=mailto]:hover i, .contact-text a[href^=mailto]:active i, .contact-text a[href^=mailto]:focus i {
+.contact-text a[href^=mailto]:hover i:last-of-type, .contact-text a[href^=mailto]:active i:last-of-type, .contact-text a[href^=mailto]:focus i:last-of-type {
   color: #e71d36;
+}
+
+.contact-text a[href^=mailto] span {
+  unicode-bidi: bidi-override;
+  direction: rtl;
 }
 
 .contact-text li {

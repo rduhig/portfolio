@@ -495,15 +495,20 @@ header {
   }
 
   a[href^=mailto] {
-    i {
+    i:last-of-type {
       color: $body-background-color;
       transition: all 0.15s;
     }
 
     &:hover, &:active, &:focus {
-      i {
+      i:last-of-type {
         color: $primary-accent-color;
       }
+    }
+
+    span {
+      unicode-bidi: bidi-override;
+      direction: rtl;
     }
   }
 
