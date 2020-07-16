@@ -12,10 +12,14 @@ $inactive-text-color: #708090;
 
 /* ~~~~~~~~~~~~~~~~~~~~ SHARED ~~~~~~~~~~~~~~~~~~~~ */
 
+html {
+  overflow-y: auto;
+}
+
 body {
   font-family: $text-font-family;
   background-color: $body-background-color;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 h1, h2, h3, h4 {
