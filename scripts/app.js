@@ -21,7 +21,7 @@ app.smoothScroll = () => {
 
 app.animateNav = () => {
   const $nav = $("nav");
-  $(window).on("scroll", () => {
+  $(window).on("scroll", $.throttle(250, () => {
     if (!$nav.hasClass("expanded")) {
       if($(this).scrollTop()) {
         $nav.attr("class", "compressed");
@@ -29,7 +29,7 @@ app.animateNav = () => {
         $nav.removeClass("compressed");
       }
     }
-  }).trigger("scroll");
+  })).trigger("scroll");
 };
 
 app.cycleImages = (imgPaths, $targetImg) => {
