@@ -12,14 +12,9 @@ $inactive-text-color: #708090;
 
 /* ~~~~~~~~~~~~~~~~~~~~ SHARED ~~~~~~~~~~~~~~~~~~~~ */
 
-html {
-  overflow-y: auto;
-}
-
 body {
   font-family: $text-font-family;
   background-color: $body-background-color;
-  overflow: hidden;
 }
 
 h1, h2, h3, h4 {
@@ -87,9 +82,6 @@ a {
 img {
   max-width: 100%;
 }
-
-// .page-top {
-// }
 
 .content-wrapper {
   width: 100%;
