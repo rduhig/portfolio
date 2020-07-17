@@ -55,7 +55,7 @@ app.observeElements = () => {
 };
 
 app.mobileMenu = () => {
-  $("nav button").on("click", function() {
+  $("nav button").on("click", function () {
     $(this).toggleClass("active not-active");
     $("nav").toggleClass("expanded");
     $("nav ul").toggleClass("mobile");
@@ -79,11 +79,29 @@ app.clickEmail = () => {
   });
 };
 
+app.preloadImages = imagePaths => {
+  if (!app.preloadImages.images) {
+    app.preloadImages.images = [];
+  }
+  let images = app.preloadImages.images;
+  imagePaths.forEach(path => {
+    const $image = $("<img>", {src: path});
+    images.push($image);
+    $image.on("load", function () {
+      const index = images.map(e => {return e.attr("src")}).indexOf($(this).attr("src"));
+      if (index !== -1) {
+        images.splice(index, 1);
+      }
+    });
+  });
+};
+
 app.init = () => {
   app.observeElements();
   app.mobileMenu();
   app.smoothScroll();
   app.clickEmail();
+  app.preloadImages(app.portraitPaths);
 };
 
 $(() => {
