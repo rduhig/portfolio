@@ -9,6 +9,25 @@ const app = {
   refreshIntervalId: null
 };
 
+app.startImageCycle = () => {
+  $targetImg = $(".about-image img");
+  let index = app.portraitPaths.indexOf($targetImg.attr("src")) + 1;
+  app.refreshIntervalId = setInterval(() => {
+    $targetImg.addClass("blur");
+    setTimeout(() => {
+      $targetImg.attr("src", app.portraitPaths[index]).on("load", () => {
+        $targetImg.removeClass("blur");
+      });
+      index = (index + 1) % app.portraitPaths.length;
+    }, 250);
+  }, 10000);
+};
+
+app.stopImageCycle = () => {
+  clearInterval(app.refreshIntervalId);
+  app.refreshIntervalId = null;
+}
+
 app.observeElements = () => {
   const $nav = $("nav");
   const observer = new IntersectionObserver(entries => {
@@ -40,12 +59,11 @@ app.mobileMenu = () => {
     $(this).toggleClass("active not-active");
     $("nav").toggleClass("expanded");
     $("nav ul").toggleClass("mobile");
-    $(window).trigger("scroll");
   });
 };
 
 app.smoothScroll = () => {
-  $("[href^='#']").click(function (e) {
+  $("[href^='#']").on("click", function (e) {
     e.preventDefault();
     $("nav button.active").trigger("click");
     $('html, body').animate({
@@ -53,25 +71,6 @@ app.smoothScroll = () => {
     }, 500);
   });
 };
-
-app.startImageCycle = () => {
-  $targetImg = $(".about-image img");
-  let index = app.portraitPaths.indexOf($targetImg.attr("src")) + 1;
-  app.refreshIntervalId = setInterval(() => {
-    $targetImg.addClass("blur");
-    setTimeout(() => {
-      $targetImg.attr("src", app.portraitPaths[index]).on("load", () => {
-        $targetImg.removeClass("blur");
-      });
-      index = (index + 1) % app.portraitPaths.length;
-    }, 250);
-  }, 10000);
-};
-
-app.stopImageCycle = () => {
-  clearInterval(app.refreshIntervalId);
-  app.refreshIntervalId = null;
-}
 
 app.clickEmail = () => {
   $("a[href^='mailto'").on("click", function (e) {
