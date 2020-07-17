@@ -9,6 +9,32 @@ const app = {
   refreshIntervalId: null
 };
 
+app.observeElements = () => {
+  const $nav = $("nav");
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      switch (entry.target) {
+        case $(".page-top")[0]:
+          if (entry.isIntersecting) {
+            $nav.removeClass("compressed");
+          } else {
+            $nav.addClass("compressed");
+          }
+          break;
+        case $(".about-image")[0]:
+          if (entry.isIntersecting) {
+            app.startImageCycle();
+          } else {
+            app.stopImageCycle();
+          }
+          break;
+      }
+    });
+  }, {threshold: 0});
+  observer.observe($(".page-top")[0]);
+  observer.observe($(".about-image")[0]);
+};
+
 app.mobileMenu = () => {
   $("nav button").on("click", function() {
     $(this).toggleClass("active not-active");
@@ -55,29 +81,7 @@ app.clickEmail = () => {
 };
 
 app.init = () => {
-  const $nav = $("nav");
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      switch (entry.target) {
-        case $(".page-top")[0]:
-          if (entry.isIntersecting) {
-            $nav.removeClass("compressed");
-          } else {
-            $nav.addClass("compressed");
-          }
-          break;
-        case $(".about-image")[0]:
-          if (entry.isIntersecting) {
-            app.startImageCycle();
-          } else {
-            app.stopImageCycle();
-          }
-          break;
-      }
-    });
-  }, {threshold: 0});
-  observer.observe($(".page-top")[0]);
-  observer.observe($(".about-image")[0]);
+  app.observeElements();
   app.mobileMenu();
   app.smoothScroll();
   app.clickEmail();
