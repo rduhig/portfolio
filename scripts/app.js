@@ -63,7 +63,7 @@ app.init = () => {
           if (entry.isIntersecting) {
             $nav.removeClass("compressed");
           } else {
-            $nav.attr("class", "compressed");
+            $nav.addClass("compressed");
           }
           break;
         case $(".about-image")[0]:
