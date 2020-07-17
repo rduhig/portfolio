@@ -1,4 +1,13 @@
-const app = {};
+const app = {
+  portraitPaths: [
+    "./assets/portraits/robert-1.png",
+    "./assets/portraits/robert-2.png",
+    "./assets/portraits/robert-3.png",
+    "./assets/portraits/robert-4.png",
+    "./assets/portraits/robert-5.png"
+  ],
+  refreshIntervalId: null
+};
 
 app.mobileMenu = () => {
   $("nav button").on("click", function() {
@@ -19,31 +28,24 @@ app.smoothScroll = () => {
   });
 };
 
-app.animateNav = () => {
-  const $nav = $("nav");
-  $(window).on("scroll", $.throttle(250, () => {
-    if (!$nav.hasClass("expanded")) {
-      if($(this).scrollTop()) {
-        $nav.attr("class", "compressed");
-      } else {
-        $nav.removeClass("compressed");
-      }
-    }
-  })).trigger("scroll");
-};
-
-app.cycleImages = (imgPaths, $targetImg) => {
-  let index = 1;
-  setInterval(() => {
+app.startImageCycle = () => {
+  $targetImg = $(".about-image img");
+  let index = app.portraitPaths.indexOf($targetImg.attr("src")) + 1;
+  app.refreshIntervalId = setInterval(() => {
     $targetImg.addClass("blur");
     setTimeout(() => {
-      $targetImg.attr("src", imgPaths[index]).on("load", () => {
+      $targetImg.attr("src", app.portraitPaths[index]).on("load", () => {
         $targetImg.removeClass("blur");
       });
-      index = (index + 1) % imgPaths.length;
+      index = (index + 1) % app.portraitPaths.length;
     }, 250);
   }, 10000);
 };
+
+app.stopImageCycle = () => {
+  clearInterval(app.refreshIntervalId);
+  app.refreshIntervalId = null;
+}
 
 app.clickEmail = () => {
   $("a[href^='mailto'").on("click", function (e) {
@@ -53,22 +55,34 @@ app.clickEmail = () => {
 };
 
 app.init = () => {
-  const portraitPaths = [
-    "./assets/portraits/robert-1.png",
-    "./assets/portraits/robert-2.png",
-    "./assets/portraits/robert-3.png",
-    "./assets/portraits/robert-4.png",
-    "./assets/portraits/robert-5.png"
-  ];
-  $portraitImg = $(".about-image img");
+  const $nav = $("nav");
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      switch (entry.target) {
+        case $(".page-top")[0]:
+          if (entry.isIntersecting) {
+            $nav.removeClass("compressed");
+          } else {
+            $nav.attr("class", "compressed");
+          }
+          break;
+        case $(".about-image")[0]:
+          if (entry.isIntersecting) {
+            app.startImageCycle();
+          } else {
+            app.stopImageCycle();
+          }
+          break;
+      }
+    });
+  }, {threshold: 0});
+  observer.observe($(".page-top")[0]);
+  observer.observe($(".about-image")[0]);
   app.mobileMenu();
   app.smoothScroll();
-  app.animateNav();
-  app.cycleImages(portraitPaths, $portraitImg);
   app.clickEmail();
 };
 
 $(() => {
   app.init();
-  AOS.init();
 });

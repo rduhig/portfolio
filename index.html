@@ -6,11 +6,11 @@
   <title>Robert Duhig | Front-End Developer</title>
   <link href="./assets/favicon.png" rel="icon" type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&family=Poppins:wght@500&display=swap" rel="stylesheet">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link href="./styles/style.css" rel="stylesheet">
   <script src="https://kit.fontawesome.com/7b918aa7b2.js" crossorigin="anonymous"></script>
 </head>
 <body>
+  <div class="page-top"></div>
   <nav>
     <div class="nav-top-panel content-wrapper">
       <h4>RD</h4>
@@ -41,7 +41,7 @@
     <div class="content-wrapper">
       <section class="about" id="about">
         <h2>about<span>_</span>me<span>()</span></h2>
-        <div class="about-container" data-aos="zoom-out">
+        <div class="about-container">
           <div class="about-image">
             <div class="about-image-container">
               <img src="./assets/portraits/robert-1.png" alt="Portraits of Robert Duhig with various expressions.">
@@ -56,7 +56,7 @@
       </section>
       <section class="skills" id="skills">
         <h2>my<span>_</span>skills<span>()</span></h2>
-        <ul class="skills-container" data-aos="zoom-out">
+        <ul class="skills-container">
           <li tabindex="0">
             <img src="./assets/skill-icons/javascript-icon.png" alt="The JavaScript logo.">
             <p>JavaScript</p>
@@ -110,28 +110,28 @@
       <section class="projects" id="projects">
         <h2>recent<span>_</span>projects<span>()</span></h2>
         <div class="projects-container">
-          <article class="project" data-aos="zoom-out">
+          <article class="project">
             <div class="project-image">
               <img src="./assets/projects/the-film-factory-project.png" alt="The Film Factory website displayed on desktop and mobile screens.">
             </div>
             <div class="project-text-left">
               <h3>The Film Factory</h3>
               <p>React // JavaScript // REST API // Firebase // Group programming with <a href="https://eyelmordido.com/" target="_blank"><span>Eyel</span> <i class="fas fa-external-link-alt"></i></a>, <a href="https://www.melahls.dev/" target="_blank"><span>Melissa</span> <i class="fas fa-external-link-alt"></i></a> and <a href="https://www.taylorrobertson.com/" target="_blank"><span>Taylor</span> <i class="fas fa-external-link-alt"></i></a></p>
-              <p>My team created a web app that recommends foreign-language films that are similar to English-language films the user enjoyed. The user can then push their chosen foreign-language and English-language film pair to a database so that other users can view their film choices.</p>
+              <p>My team created a web app that recommends foreign-language films that are similar to an English-language film the user enjoyed. The user can then push their chosen foreign-language and English-language film pair to a database so that other users can view their film choices.</p>
               <div class="links">
                 <a href="https://thefilmfour.github.io/theFilmFactory/" target="_blank" class="button">View Live</a>
                 <a href="https://github.com/thefilmfour/theFilmFactory" target="_blank" class="button">GitHub</a>
               </div>
             </div>
           </article>
-          <article class="project" data-aos="zoom-out">
+          <article class="project">
             <div class="project-image">
               <img src="./assets/projects/memortree-match-project.png" alt="The MemorTree Match website displayed on desktop and mobile screens.">
             </div>
             <div class="project-text-right">
               <h3>MemorTree Match</h3>
               <p>JavaScript // HTML // CSS // REST API // Pair programming with <a href="https://www.anastasiamay.com/" target="blank"><span>Anastasia</span> <i class="fas fa-external-link-alt"></i></a></p>
-              <p>We created a card-matching memory game based on trees you can spot around High Park. Once the user finished the game, they can learn about the trees they might encounter in Toronto.</p>
+              <p>We created a card-matching memory game based on trees you can spot around High Park. Once the user finishes the game, they can learn about the trees they might encounter in Toronto.</p>
               <div class="links">
                 <a href="https://teamtreemendous.github.io/memorTreeMatch/" target="_blank" class="button">View Live</a>
                 <a href="https://github.com/TeamTreeMendous/memorTreeMatch" target="_blank" class="button">GitHub</a>
@@ -142,7 +142,7 @@
       </section>
       <section class="contact" id="contact">
         <h2>get<span>_</span>in<span>_</span>touch<span>()</span></h2>
-        <div class="contact-container" data-aos="zoom-out">
+        <div class="contact-container">
           <div class="contact-text">
             <p>Thanks for taking the time to look at my portfolio. If you'd like to connect, shoot me a message at:</p>
             <p><a href="mailto:robertduhig@myemail.com"><span>moc.ohoz@gihudtrebor</span> <i class="fas fa-paper-plane"></i></a></p>
@@ -187,8 +187,6 @@
     </div>
   </footer>
   <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="./scripts/jquery.ba-throttle-debounce.min.js"></script>
   <script src="./scripts/app.js"></script>
 </body>
 </html>
