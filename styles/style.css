@@ -703,6 +703,7 @@ header h1 {
 }
 
 .about-image-container {
+  background-size: contain;
   max-width: 50%;
   border-radius: 50%;
   margin: 0 auto;
@@ -710,17 +711,13 @@ header h1 {
 }
 
 .about-image-container img {
-  -webkit-filter: blur(0);
-          filter: blur(0);
-  -webkit-transition: -webkit-filter 0.25s;
-  transition: -webkit-filter 0.25s;
-  transition: filter 0.25s;
-  transition: filter 0.25s, -webkit-filter 0.25s;
+  opacity: 1;
 }
 
-.about-image-container img.blur {
-  -webkit-filter: blur(50px);
-          filter: blur(50px);
+.about-image-container img.fade {
+  opacity: 0;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
 .about-text p {

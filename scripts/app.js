@@ -10,16 +10,23 @@ const app = {
 };
 
 app.startImageCycle = () => {
-  $targetImg = $(".about-image img");
-  let index = app.portraitPaths.indexOf($targetImg.attr("src")) + 1;
+  const $targetImg = $(".about-image img");
+  const $imgContainer = $(".about-image-container");
+  let nextImgIndex = (app.portraitPaths.indexOf($targetImg.attr("src")) + 1) % app.portraitPaths.length;
+  $imgContainer.css("background-image", `url("${app.portraitPaths[nextImgIndex]}"`);
   app.refreshIntervalId = setInterval(() => {
-    $targetImg.addClass("blur");
+    $targetImg.addClass("fade");
     setTimeout(() => {
-      $targetImg.attr("src", app.portraitPaths[index]).on("load", () => {
-        $targetImg.removeClass("blur");
+      $targetImg.attr("src", app.portraitPaths[nextImgIndex]).one("load", () => {
+        $targetImg.removeClass("fade");
+      }).each(function () {
+        if (this.complete) {
+          $(this).trigger("load");
+        }
       });
-      index = (index + 1) % app.portraitPaths.length;
-    }, 250);
+      nextImgIndex = (nextImgIndex + 1) % app.portraitPaths.length;
+      $imgContainer.css("background-image", `url("${app.portraitPaths[nextImgIndex]}"`);
+    }, 500);
   }, 10000);
 };
 
@@ -28,7 +35,7 @@ app.stopImageCycle = () => {
   app.refreshIntervalId = null;
 }
 
-app.observeElements = () => {
+app.observeIntersections = () => {
   const $nav = $("nav");
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -87,17 +94,21 @@ app.preloadImages = imagePaths => {
   imagePaths.forEach(path => {
     const $image = $("<img>", {src: path});
     images.push($image);
-    $image.on("load", function () {
+    $image.one("load", function () {
       const index = images.map(e => {return e.attr("src")}).indexOf($(this).attr("src"));
       if (index !== -1) {
         images.splice(index, 1);
+      }
+    }).each(function () {
+      if (this.complete) {
+        $(this).trigger("load");
       }
     });
   });
 };
 
 app.init = () => {
-  app.observeElements();
+  app.observeIntersections();
   app.mobileMenu();
   app.smoothScroll();
   app.clickEmail();
